@@ -6,7 +6,7 @@ from telethon.tl.types import ChannelParticipantsSearch
 
 API_ID = 33123682
 API_HASH = "bbd457d7a0418081f059ab0b57c8357e"
-PHONE = "+32497379834"
+BOT_TOKEN = "8597470926:AAFWfpbLfpzxI5qMr8TmmQYUzR4d9LNZnsc"
 
 VIP_GROUP_ID = -1003732620791
 DISCUSSION_GROUP_ID = -1003933285650
@@ -51,10 +51,10 @@ async def kick_member(client, group_id, user_id):
         logger.error(f"❌ Erreur expulsion {user_id}: {e}")
 
 async def main():
-    client = TelegramClient("session_syncbot", API_ID, API_HASH, sequential_updates=True)
-    await client.start(phone=PHONE)
+    client = TelegramClient("bot_session", API_ID, API_HASH)
+    await client.start(bot_token=BOT_TOKEN)
     me = await client.get_me()
-    logger.info(f"✅ Connecté : {me.first_name}")
+    logger.info(f"✅ Connecté : @{me.username}")
 
     while True:
         try:
